@@ -1,5 +1,7 @@
 # Voyager Base
 
+Clean code base based on tutorial video examples. Starting point for projects based on Voyager.
+
 This is a Kotlin Multiplatform project targeting Android, iOS.
 
 * `/composeApp` is for code that will be shared across your Compose Multiplatform applications.

@@ -25,7 +25,7 @@ object SettingsTab : Tab {
         @Composable
         get() = remember {
             TabOptions(
-                index = 1u,
+                index = 2u,
                 title = "Settings",
                 icon = null
             )

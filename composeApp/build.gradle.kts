@@ -42,7 +42,7 @@ kotlin {
 
             implementation(libs.navigator)
             implementation(libs.navigator.tabs)
-            implementation(libs.navigator.transitions)
+            implementation(libs.transitions)
         }
     }
 }
