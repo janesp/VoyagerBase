@@ -9,8 +9,12 @@ import cafe.adriel.voyager.navigator.tab.CurrentTab
 import cafe.adriel.voyager.navigator.tab.LocalTabNavigator
 import cafe.adriel.voyager.navigator.tab.Tab
 import cafe.adriel.voyager.navigator.tab.TabNavigator
+import data.NetworkApi
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.ui.tooling.preview.Preview
+import org.koin.core.context.startKoin
+import org.koin.dsl.module
+import screen.details.DetailsViewModel
 import tab.home.HomeTab
 import tab.profile.ProfileTab
 import tab.settings.SettingsTab
@@ -19,6 +23,7 @@ import tab.settings.SettingsTab
 @Composable
 @Preview
 fun App() {
+    initKoin()
     MaterialTheme {
         TabNavigator(HomeTab) {
             Scaffold(
@@ -45,4 +50,14 @@ private fun RowScope.TabNavigationItem(tab: Tab) {
         label = { Text((tab.options.title)) },
         icon = {}
     )
+}
+
+val myModule = module {
+    factory { DetailsViewModel(NetworkApi()) }
+}
+
+fun initKoin() {
+    startKoin {
+        modules(myModule)
+    }
 }

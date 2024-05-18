@@ -40,9 +40,13 @@ kotlin {
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
 
+            implementation(libs.koin.core)
+
             implementation(libs.navigator)
             implementation(libs.navigator.tabs)
             implementation(libs.transitions)
+            implementation(libs.screen.model)
+            implementation(libs.voyager.koin)
         }
     }
 }

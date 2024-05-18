@@ -9,17 +9,28 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import cafe.adriel.voyager.core.model.rememberNavigatorScreenModel
+import cafe.adriel.voyager.core.model.rememberScreenModel
 import cafe.adriel.voyager.core.screen.Screen
+import cafe.adriel.voyager.koin.getNavigatorScreenModel
+import cafe.adriel.voyager.koin.getScreenModel
 import cafe.adriel.voyager.navigator.LocalNavigator
+import cafe.adriel.voyager.navigator.currentOrThrow
 
 data class DetailsScreen(val number: Int) : Screen {
     @Composable
     override fun Content() {
-        val navigator = LocalNavigator.current
+        val navigator = LocalNavigator.currentOrThrow
+        val viewModel = getScreenModel<DetailsViewModel>()
+        val viewModel2 = navigator.getNavigatorScreenModel<DetailsViewModel>()
+//        val viewModel = navigator.rememberNavigatorScreenModel { DetailsViewModel() }
+//        val viewModel = rememberScreenModel { DetailsViewModel() }
+
         Scaffold(
             topBar = {
                 TopAppBar(
@@ -27,7 +38,7 @@ data class DetailsScreen(val number: Int) : Screen {
                     navigationIcon = {
                         IconButton(onClick = { navigator?.pop() }) {
                             Icon(
-                                imageVector = Icons.Default.ArrowBack,
+                                imageVector = Icons.AutoMirrored.Default.ArrowBack,
                                 contentDescription = "Back Arrow icon"
                             )
                         }
@@ -40,7 +51,7 @@ data class DetailsScreen(val number: Int) : Screen {
                 contentAlignment = Alignment.Center
             ) {
                 Button(onClick = {}) {
-                    Text("Details Screen ($number)")
+                    Text("Details Screen (${viewModel.number.value})")
                 }
             }
         }
