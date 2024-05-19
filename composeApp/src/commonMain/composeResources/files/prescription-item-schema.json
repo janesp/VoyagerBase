@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "PrescriptionItem",
+  "type": "object",
+  "properties": {
+    "medicationId": {
+      "type": "string",
+      "description": "Unique identifier for the medication"
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of the medication"
+    },
+    "dose": {
+      "type": "string",
+      "description": "Dosage information"
+    },
+    "frequency": {
+      "type": "string",
+      "description": "Frequency of medication intake"
+    },
+    "duration": {
+      "type": "string",
+      "description": "Duration for which the medication is to be taken"
+    }
+  },
+  "required": ["medicationId", "name", "dose", "frequency", "duration"]
+}

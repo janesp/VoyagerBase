@@ -1,4 +1,4 @@
-package com.abdagon.voyager_base
+package com.abdagon.guiplayground
 
 import App
 import android.os.Bundle

@@ -1,0 +1,107 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "MedicalPrescription",
+  "type": "object",
+  "properties": {
+    "prescriptionId": {
+      "type": "string",
+      "description": "Unique identifier for the prescription"
+    },
+    "patient": {
+      "type": "object",
+      "properties": {
+        "patientId": {
+          "type": "string",
+          "description": "Unique identifier for the patient"
+        },
+        "firstName": {
+          "type": "string",
+          "description": "Patient's first name"
+        },
+        "lastName": {
+          "type": "string",
+          "description": "Patient's last name"
+        },
+        "dateOfBirth": {
+          "type": "string",
+          "format": "date",
+          "description": "Patient's date of birth"
+        },
+        "address": {
+          "type": "string",
+          "description": "Patient's address"
+        },
+        "contactNumber": {
+          "type": "string",
+          "description": "Patient's contact number"
+        }
+      },
+      "required": ["patientId", "firstName", "lastName", "dateOfBirth"]
+    },
+    "doctor": {
+      "type": "object",
+      "properties": {
+        "doctorId": {
+          "type": "string",
+          "description": "Unique identifier for the doctor"
+        },
+        "firstName": {
+          "type": "string",
+          "description": "Doctor's first name"
+        },
+        "lastName": {
+          "type": "string",
+          "description": "Doctor's last name"
+        },
+        "specialty": {
+          "type": "string",
+          "description": "Doctor's specialty"
+        },
+        "contactNumber": {
+          "type": "string",
+          "description": "Doctor's contact number"
+        }
+      },
+      "required": ["doctorId", "firstName", "lastName", "specialty"]
+    },
+    "medications": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "medicationId": {
+            "type": "string",
+            "description": "Unique identifier for the medication"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the medication"
+          },
+          "dose": {
+            "type": "string",
+            "description": "Dosage information"
+          },
+          "frequency": {
+            "type": "string",
+            "description": "Frequency of medication intake"
+          },
+          "duration": {
+            "type": "string",
+            "description": "Duration for which the medication is to be taken"
+          }
+        },
+        "required": ["medicationId", "name", "dose", "frequency", "duration"]
+      }
+    },
+    "prescriptionDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Date when the prescription was issued"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Additional notes or instructions"
+    }
+  },
+  "required": ["prescriptionId", "patient", "doctor", "medications", "prescriptionDate"]
+}
