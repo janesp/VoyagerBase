@@ -1,4 +1,4 @@
-rootProject.name = "GuiPlayground"
+rootProject.name = "VoyagerBase"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {

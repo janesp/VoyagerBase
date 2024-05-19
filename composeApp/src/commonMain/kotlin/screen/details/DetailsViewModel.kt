@@ -8,7 +8,9 @@ import data.NetworkApi
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-class DetailsViewModel(private val api: NetworkApi): ScreenModel {
+class DetailsViewModel(
+    private val api: NetworkApi
+): ScreenModel {
     private var _number = mutableStateOf(0)
     val number: State<Int> = _number
 

@@ -1,7 +1,6 @@
-# GUI Playground
+# Voyager Base
 
-Experimental project to try out Voyager screens and navigation, as well as layout features.
-
+Clean code base based on tutorial video examples. Starting point for projects based on Voyager.
 
 This is a Kotlin Multiplatform project targeting Android, iOS.
 

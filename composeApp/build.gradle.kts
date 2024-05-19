@@ -4,7 +4,6 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsCompose)
-    alias(libs.plugins.kotlinxSerialization)
 }
 
 kotlin {
@@ -41,7 +40,6 @@ kotlin {
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
 
-            implementation(libs.kotlinx.serialization.json)
             implementation(libs.koin.core)
 
             implementation(libs.navigator)
@@ -54,7 +52,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.abdagon.guiplayground"
+    namespace = "com.abdagon.voyager_base"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
@@ -62,7 +60,7 @@ android {
     sourceSets["main"].resources.srcDirs("src/commonMain/resources")
 
     defaultConfig {
-        applicationId = "com.abdagon.guiplayground"
+        applicationId = "com.abdagon.voyager_base"
         minSdk = libs.versions.android.minSdk.get().toInt()
         targetSdk = libs.versions.android.targetSdk.get().toInt()
         versionCode = 1
